@@ -32,7 +32,6 @@ import javafx.scene.layout.FlowPane;
  * @author BunnyRailgun
  */
 public class MainMenuController {
-    //GamePlayController gamePlayController = new GamePlayController();
     
     public void handleStartChat(Stage primaryStage){
        ChatWindowView chat = new ChatWindowView();

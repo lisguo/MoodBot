@@ -8,6 +8,7 @@ public class Contact{
     public String name;
     public ArrayList<MessageModel> messages;
     public boolean isCurrentContact = false;
+    public boolean respond;
     
     
     public ChatController chatController;

@@ -13,7 +13,7 @@ import MoodBot.view.MoodBotView;
 public class MoodBot extends Application {
     
     MoodBotView ui = new MoodBotView();
-    String appTitle = "MOOD BOT";
+    String appTitle = "MOOD BOTS";
     
     
     @Override

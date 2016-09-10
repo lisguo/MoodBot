@@ -3,6 +3,7 @@ package MoodBot.controller;
 import MoodBot.model.Contact;
 import MoodBot.model.MessageModel;
 import MoodBot.view.ChatWindowView;
+import MoodBot.view.MoodBotView;
 
 public class ChatController{
     ChatWindowView chat;
@@ -16,6 +17,13 @@ public class ChatController{
         //Empty TextArea
         chat.textArea.setText("");
         chat.refreshMessages();
+        
+        chat.getMoodBotModel().getCurrContact().respond = true;
+    }
+    
+    public void handleLogOff(){
+        MoodBotView mainMenu = new MoodBotView();
+        mainMenu.restartUI(chat.chatStage, "MOOD BOTS");
     }
     
     public void sendMessage(String message, boolean isUser){

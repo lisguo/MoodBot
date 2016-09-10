@@ -33,11 +33,14 @@ public class ChatWindowView{
     public TextArea textArea;
     
     MoodBotModel model;
-    
+    public Stage chatStage;
     
     ChatController chatController = new ChatController(this);
+    private ScrollPane scrollMessages;
     
     public void startUI(Stage primaryStage, MoodBotModel model){
+        chatStage = primaryStage;
+        
         this.model = model;
         
         chatPane = new BorderPane();
@@ -75,7 +78,7 @@ public class ChatWindowView{
         //Create Messages
         messages = new VBox();
         messages.getStyleClass().add("messages");
-        ScrollPane scrollMessages = new ScrollPane(messages);
+        scrollMessages = new ScrollPane(messages);
         scrollMessages.getStyleClass().add("scroll_messages");
         
         scrollMessages.setHbarPolicy(ScrollBarPolicy.NEVER);
@@ -123,12 +126,17 @@ public class ChatWindowView{
             MessageView view = new MessageView(m);
             messages.getChildren().add(view);
         }
+        scrollMessages.setVvalue(scrollMessages.getVmax());
     }
     
     
     public void initEventHandlers(){
         sendButton.setOnAction(e ->{
             chatController.handleSendMessage();
+        });
+        
+        logOff.setOnAction(e ->{
+            chatController.handleLogOff();
         });
     }
     
