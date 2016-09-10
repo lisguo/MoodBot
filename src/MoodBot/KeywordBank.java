@@ -8,11 +8,16 @@ public class KeywordBank{
         "depressed", "depressing", "horrible", "horribly", "unwell",
         "sick", "cloudy", "rainy", "hazy", "foggy", "alone", "lonely",
         "solitude", "melancholy", "melancholic", "low", "down", "worry", 
-        "worried", "worrying", "stress", "stressed", "stressing", "drained"};
+        "worried", "worrying", "stress", "stressed", "stressing", "drained",
+        "don't feel"};
     
     public static String[] severeBank = {"die", "kill myself", "cut myself", 
     "blood", "suicide", "end it all", "jump off a building", "hang myself", 
     "there is no point"};
+    
+    public static String[] greetingBank = {"hi", "hey","hello"};
+    
+    
 
     public static String[] confirmBank = {"yes", "sure", "ok", "okay", "fine"};
     public static String[] denialBank = {"no", "don't", "nah", "not really"};
@@ -38,6 +43,15 @@ public class KeywordBank{
         for(String word : denialBank){
             if(userMessage.contains(word))
                 return true;
+        }
+        return false;
+    }
+    
+    public boolean sayHi(String userMessage){
+        for(String word : greetingBank){
+            if(userMessage.contains(word)){
+                return true;
+            }
         }
         return false;
     }

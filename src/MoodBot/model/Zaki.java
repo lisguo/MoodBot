@@ -29,6 +29,7 @@ public class Zaki extends Contact{
             
             String response = "";
             
+            
             if(situation.equals("Severe")){
                 boolean confirm = bank.getConfirmation(userMessage);
                 if(confirm){
@@ -38,6 +39,10 @@ public class Zaki extends Contact{
                     response = "I understand. Perhaps consider these alternative places to seek help: https://www.suicideforum.com";
                 }
                 situation.equals("Normal");
+            }
+            
+            else if(bank.sayHi(userMessage)){
+                response = "Hello there! How are you?";
             }
             else{
                 int mood = bank.rateMood(userMessage);
@@ -83,10 +88,11 @@ public class Zaki extends Contact{
 
                     }
                 }
+         }
+            
             //Send response
                 chatController.sendMessage(response, false);
                 chatController.chat.refreshMessages();
-         }
     
     }
 }

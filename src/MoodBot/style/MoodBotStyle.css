@@ -1,5 +1,5 @@
 .main_menu{
-    -fx-background-color: #f6fa7a;
+    -fx-background-color: #E3EAFF;
 }
 .menu_button{
     -fx-padding: 22px;
@@ -8,7 +8,7 @@
     -fx-font: 30px Rockwell;
     -fx-border-width: 1px;
     -fx-border-color: gray;
-    -fx-background-color: #f7fc53;
+    -fx-background-color: #C9D8FF;
 }
 .menu_buttons_vbox{
     -fx-padding: 20px;
