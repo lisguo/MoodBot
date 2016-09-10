@@ -27,7 +27,7 @@ public class Zaki extends Contact{
             
             String userMessage = messages.get(messages.size()-1).getMessage();
             
-            String response = "";
+            String response = "...I have no words";
             
             
             if(situation.equals("Severe")){

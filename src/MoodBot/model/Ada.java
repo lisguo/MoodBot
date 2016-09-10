@@ -31,7 +31,7 @@ public class Ada extends Contact{
             
             String userMessage = messages.get(messages.size()-1).getMessage();
             
-            String response = "";
+            String response = "Umm I can't understand you.";
             
             
             if(situation.equals("Severe")){
