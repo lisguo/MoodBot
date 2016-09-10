@@ -2,6 +2,7 @@ package MoodBot.view;
 
 import MoodBot.StartupConstants;
 import MoodBot.controller.ChatController;
+import MoodBot.model.Ada;
 import MoodBot.model.Contact;
 import MoodBot.model.MessageModel;
 import MoodBot.model.MoodBotModel;
@@ -63,11 +64,7 @@ public class ChatWindowView{
         menuBar.getChildren().add(logOff);
         chatPane.setTop(menuBar);
         
-        //Create Contacts
-        Contact Zaki = new Zaki();
-        ContactView ZakiView = new ContactView(Zaki);
-        contacts.getChildren().add(ZakiView);
-        model.setCurrContact(Zaki);
+        populateContacts();
         
         scrollContacts.setHbarPolicy(ScrollBarPolicy.NEVER);
         scrollContacts.setVbarPolicy(ScrollBarPolicy.ALWAYS);
@@ -138,5 +135,34 @@ public class ChatWindowView{
     public void initConversation(Contact currContact){
         currContact.chatController = chatController;
         currContact.sayGreeting();
+    }
+    
+    public void populateContacts(){
+        //Create Contacts
+        Contact Zaki = new Zaki();
+        ContactView ZakiView = new ContactView(Zaki, model, this);
+        contacts.getChildren().add(ZakiView);
+        model.setCurrContact(Zaki);
+        Zaki.isCurrentContact = true;
+        
+        Contact Ada = new Ada();
+        ContactView AdaView = new ContactView(Ada, model,this);
+        contacts.getChildren().add(AdaView);
+        
+        refreshContacts();
+        
+    }
+    
+    public void refreshContacts(){
+        for(int i = 0; i < contacts.getChildren().size(); i++){
+            ContactView contact = (ContactView) contacts.getChildren().get(i);
+            contact.getStyleClass().clear();
+            if(contact.contactName.equals(model.getCurrContact().name)){
+                contact.getStyleClass().add("selected_contact");
+            }
+            else{
+                contact.getStyleClass().add("contact_view");
+            }
+        }
     }
 }

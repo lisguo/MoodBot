@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Contact{
     public String name;
     public ArrayList<MessageModel> messages;
+    public boolean isCurrentContact = false;
     
     
     public ChatController chatController;
