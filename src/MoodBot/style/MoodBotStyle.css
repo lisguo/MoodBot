@@ -1,0 +1,40 @@
+.main_menu{
+    -fx-background-color: #f6fa7a;
+}
+.menu_button{
+    -fx-padding: 22px;
+    -fx-spacing: 20px;
+    -fx-text-fill: black;
+    -fx-font: 30px Rockwell;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-background-color: #f7fc53;
+}
+.menu_buttons_vbox{
+    -fx-padding: 20px;
+    -fx-alignment: center;
+}
+.chat_pane{
+    -fx-background-color: #cbffbd; //GREEN
+}
+.menu_bar{
+    -fx-background-color: #cbffbd; //GREEN
+}
+.contacts{
+    -fx-background-color: #fffebd; //YELLOW
+    -fx-pref-width: 250px;
+    -fx-pref-height: 70px;
+    
+}
+.scroll_contacts > .viewport{
+    -fx-background-color: #bdecff; //BLUE
+}
+.scroll_contacts{
+    -fx-pref-width: 250px;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    
+}
+.chat_window{
+    -fx-background-color: #fffebd; //IREELEVANT
+}
