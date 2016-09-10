@@ -11,13 +11,17 @@ public class ChatController{
         chat = view;
     }
     public void handleSendMessage(){
-        MessageModel m = new MessageModel(chat.textArea.getText(), true);
-        Contact currContact = chat.getMoodBotModel().getCurrContact();
-        currContact.messages.add(m);
+        sendMessage(chat.textArea.getText(), true);
         
         //Empty TextArea
         chat.textArea.setText("");
         chat.refreshMessages();
+    }
+    
+    public void sendMessage(String message, boolean isUser){
+        Contact currContact = chat.getMoodBotModel().getCurrContact();
+        MessageModel m = new MessageModel(message, isUser);
+        currContact.messages.add(m);
     }
     
 }

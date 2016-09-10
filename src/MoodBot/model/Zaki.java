@@ -1,11 +1,12 @@
-package bot;
+package MoodBot.model;
 
+import MoodBot.controller.ChatController;
 import MoodBot.view.ChatWindowView;
 
-public class Zaki{
-    ChatWindowView chatWindow;
-    public Zaki(ChatWindowView c){
-        chatWindow = c;
+public class Zaki extends Contact{
+    
+    public Zaki(){
+        super("Zaki");
     }
     String greeting = "Hey, my name’s Zaki and welcome to MoodBots! "
             + "Here on MoodBots, you are given a team of computer bots and "
@@ -15,7 +16,9 @@ public class Zaki{
             + "your chat responses on this app. On the side panel to the left "
             + "of this chat window, you will find your conversations with the "
             + "other members of the team.";
+    
+    @Override
     public void sayGreeting(){
-        
+        chatController.sendMessage(greeting, false);
     }
 }

@@ -5,6 +5,7 @@ import MoodBot.controller.ChatController;
 import MoodBot.model.Contact;
 import MoodBot.model.MessageModel;
 import MoodBot.model.MoodBotModel;
+import MoodBot.model.Zaki;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,6 +32,9 @@ public class ChatWindowView{
     public TextArea textArea;
     
     MoodBotModel model;
+    
+    
+    ChatController chatController = new ChatController(this);
     
     public void startUI(Stage primaryStage, MoodBotModel model){
         this.model = model;
@@ -60,11 +64,10 @@ public class ChatWindowView{
         chatPane.setTop(menuBar);
         
         //Create Contacts
-        Contact Zaki = new Contact("Zaki");
+        Contact Zaki = new Zaki();
         ContactView ZakiView = new ContactView(Zaki);
         contacts.getChildren().add(ZakiView);
         model.setCurrContact(Zaki);
-        
         
         scrollContacts.setHbarPolicy(ScrollBarPolicy.NEVER);
         scrollContacts.setVbarPolicy(ScrollBarPolicy.ALWAYS);
@@ -78,6 +81,8 @@ public class ChatWindowView{
         ScrollPane scrollMessages = new ScrollPane(messages);
         scrollMessages.getStyleClass().add("scroll_messages");
         
+        scrollMessages.setHbarPolicy(ScrollBarPolicy.NEVER);
+        scrollMessages.setVbarPolicy(ScrollBarPolicy.ALWAYS);
         messages.setAlignment(Pos.TOP_CENTER);
         
         //Create Input window
@@ -102,6 +107,12 @@ public class ChatWindowView{
         //Set scene
         primaryStage.setScene(chatScene);
         
+        //Initiate conversation
+        initConversation(model.getCurrContact());
+        
+        refreshMessages();
+        
+        
     }
     
     public MoodBotModel getMoodBotModel(){
@@ -119,9 +130,13 @@ public class ChatWindowView{
     
     
     public void initEventHandlers(){
-        ChatController chatController = new ChatController(this);
         sendButton.setOnAction(e ->{
             chatController.handleSendMessage();
         });
+    }
+    
+    public void initConversation(Contact currContact){
+        currContact.chatController = chatController;
+        currContact.sayGreeting();
     }
 }

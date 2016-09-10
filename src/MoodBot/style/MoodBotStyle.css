@@ -53,7 +53,7 @@
 }
 .messages{
     -fx-pref-height: 600px;
-    -fx-spacing: .5px;
+    -fx-spacing: 4px;
 }
 .scroll_messages > .viewport{
 }
