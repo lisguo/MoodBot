@@ -6,7 +6,7 @@ import MoodBot.view.ChatWindowView;
 import MoodBot.view.MoodBotView;
 
 public class ChatController{
-    ChatWindowView chat;
+    public ChatWindowView chat;
     
     public ChatController(ChatWindowView view){
         chat = view;
@@ -19,6 +19,8 @@ public class ChatController{
         chat.refreshMessages();
         
         chat.getMoodBotModel().getCurrContact().respond = true;
+        System.out.println("Respond: " + chat.getMoodBotModel().getCurrContact().respond);
+        chat.getMoodBotModel().getCurrContact().respond();
     }
     
     public void handleLogOff(){
