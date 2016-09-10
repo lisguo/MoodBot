@@ -22,6 +22,13 @@ public class MessageView extends Pane{
         int increaseHeight = 1;
         int indexOfSpace;
         while(text.length() > 65){
+            //Check for newline
+            String firstFew = text.substring(0, 65);
+            if(firstFew.indexOf("\n") != -1){
+                newMessage = newMessage + text.substring(0, text.indexOf("\n") + 1);
+                text = text.substring(text.indexOf("\n") + 1);
+            }
+            else{
                 newMessage = newMessage + text.substring(0, 60);
                 text = text.substring(60);
 
@@ -30,6 +37,7 @@ public class MessageView extends Pane{
                 text = text.substring(indexOfSpace);
             }
             increaseHeight++;
+        }
         //Get rest of string
         newMessage = newMessage + text;
             

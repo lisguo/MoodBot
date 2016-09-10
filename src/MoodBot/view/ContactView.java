@@ -33,11 +33,12 @@ public class ContactView extends VBox{
             contact.isCurrentContact = true;
             botModel.setCurrContact(contact);
             chatWindow.refreshContacts();
-            chatWindow.refreshMessages();
             
             if(contact.messages.isEmpty()){
                 chatWindow.initConversation(contact);
             }
+            
+            chatWindow.refreshMessages();
         });
     }
 }
