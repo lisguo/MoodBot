@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import MoodBot.StartupConstants;
 import MoodBot.model.Contact;
+import MoodBot.model.MoodBotModel;
 import MoodBot.view.ChatWindowView;
 import MoodBot.view.ContactView;
 import javafx.collections.FXCollections;
@@ -35,6 +36,8 @@ public class MainMenuController {
     
     public void handleStartChat(Stage primaryStage){
        ChatWindowView chat = new ChatWindowView();
-       chat.startUI(primaryStage);
+       MoodBotModel model = new MoodBotModel();
+       chat.startUI(primaryStage, model);
+       chat.initEventHandlers();
     }
 }

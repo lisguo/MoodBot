@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Contact{
     public String name;
-    public ArrayList<String> messages;
+    public ArrayList<MessageModel> messages;
     
     public Contact(String name){
         this.name = name;
-        messages = new ArrayList<>();
+        messages = new ArrayList<MessageModel>();
     }
 }
