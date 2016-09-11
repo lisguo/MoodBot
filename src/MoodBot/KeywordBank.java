@@ -42,7 +42,7 @@ public class KeywordBank{
         }
         for(String word : denialBank){
             if(userMessage.contains(word))
-                return true;
+                return false;
         }
         return false;
     }

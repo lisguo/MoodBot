@@ -56,9 +56,10 @@ public class Zaki extends Contact{
                                     + "Meditation sessions three times a week. "
                                     + "Totally recommend trying it if you’re free"
                                     + " during one of those times.";
-                            recommendMeditation = false;
-                            response = "Do you want to talk?";
+                           recommendMeditation = false;
                         }
+                        else if(recommendMeditation == false)
+                                response = "Do you want to talk?";
                     }
                     else if(mood > -10){
                         response = "You seem unhappy. Do you want to talk about it?";
